@@ -34,9 +34,6 @@ app.get('/:collection', async (req, res) => {
 
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
 
 
 
@@ -66,18 +63,23 @@ app.post('/:collection', handleError,  (req, res) => {
  
 
 
-app.get('/collection/:collection/:doc', async(req, res) => {
-    const cityRef = db.collection(req.params.collection).doc(req.params.doc);
-const doc = await cityRef.get();
-if (!doc.exists) {
-  res.json('No such document!');
-} else {
-  res.json(doc.data());
-}
+// app.get('/collection/:collection/:doc', async(req, res) => {
+//     const cityRef = db.collection(req.params.collection).doc(req.params.doc);
+// const doc = await cityRef.get();
+// if (!doc.exists) {
+//   res.json('No such document!');
+// } else {
+//   res.json(doc.data());
+// }
 
-console.log(req.params.doc);
-console.log(req.params.collection);
+// console.log(req.params.doc);
+// console.log(req.params.collection);
+// })
+
+
+/* A callback function that will be executed when the server is listening on the
+port. */
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })
-
-
 
